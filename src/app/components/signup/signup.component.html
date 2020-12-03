@@ -1,0 +1,16 @@
+<div class="main">
+    <div class="box" >
+      <h1>Sign up</h1>
+        <mat-form-field class="signup-full-width">
+          <input  matInput  placeholder="Username"[(ngModel)]="user.Username" >
+        </mat-form-field>
+        <mat-form-field class="signup-full-width">
+          <input  matInput placeholder="Email"[(ngModel)]="user.Email" >
+        </mat-form-field>
+        <input type="password" name="password" placeholder="Password" [(ngModel)]="user.password" >
+        <input type="password" name="retypepassword" placeholder="Retype password" [(ngModel)]="user.confirmpassword">
+        <input type="submit" name="signup_submit" value="Sign up" (click)="saveValue()" />
+    </div>
+</div>
+    
+  

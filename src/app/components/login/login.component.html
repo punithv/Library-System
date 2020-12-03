@@ -1,0 +1,14 @@
+
+    <div class="main">
+      <div class="box" >
+        <h1>Log In</h1>
+          <mat-form-field class="login-full-width">
+            <input  matInput  placeholder="Username"[(ngModel)]="Login.Username" >
+          </mat-form-field>
+          <mat-form-field class="login-full-width">
+            <input  matInput placeholder="Password"[(ngModel)]="Login.password" >
+          </mat-form-field>
+          <input type="submit" name="login_submit" value="log in" (click)="verfiyLogin()" />
+      </div>
+  </div>
+    

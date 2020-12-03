@@ -1,0 +1,83 @@
+  .example-card {
+    width:25%;
+    height:25%;
+    margin: 8px;
+    border-radius: 5px;
+    transition:0.3s ease;
+    cursor:pointer;
+    background-color:whitesmoke;
+}
+   
+   
+  
+  .header{
+      width:100%;
+      display: inline-block;
+      text-align: center;
+  }
+ 
+
+  .example-card:hover{
+    transform: scale(1.01);
+    box-shadow: 5px 5px 5px black;
+}
+  .container-card{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: space-between;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    margin: 0 auto; 
+    margin-inline-start: 200px;
+  
+    
+  }
+  .main{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('src\assets\Images\book.jpg');
+  }
+
+  /* .imgs {
+    height:85%;
+    width: 85%;
+    margin-left:20px; */
+    
+  
+  mat-card-actions button:hover{
+      background-color:yellow;
+    
+  }
+  mat-card-subtitle{
+      color: forestgreen;
+      font-weight:1000;
+  }
+  mat-card-title{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align:left;
+    color: black;
+   
+  }
+
+  mat-card img{
+    object-fit: cover; 
+    width:50%;
+    height:50%;
+    justify-content: center;
+    align-items: center;
+    margin:30px;
+
+  }
+  mat-card-actions button{
+      flex:row;
+      flex-direction: row;
+  }
+  
+ 
+

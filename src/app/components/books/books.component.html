@@ -1,0 +1,21 @@
+<div class="main">
+<div class="container-card" >
+    <mat-card class="example-card" *ngFor="let data of bookList" >
+        <mat-card-header>
+          <mat-card-title>  {{data.BookTitle}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image class="imgs" src="{{data.Cover}}" alt="Image">
+         <mat-card-content>
+             <p text-wrap>
+                 {{data.Author}}
+             </p>
+             <mat-card-subtitle *ngIf="!data.Issued"  color="green" >Available</mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-subtitle>Location:{{data.Location}}</mat-card-subtitle>
+        <mat-card-actions>
+            <button mat-raised-button  *ngIf="user.getUserLoggedIn() && !data.Issued" (click)="issueBook(data)" >Issue</button>
+            <button mat-raised-button color="primary" *ngIf="user.getUserLoggedIn() && !data.Issued && isAdmin" (click)="editBook(data)" >Edit</button>
+        </mat-card-actions>
+      </mat-card>
+</div>
+</div>

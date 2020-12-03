@@ -1,0 +1,66 @@
+
+ <div class="books-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="ID">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let books"> {{ books.ID }} </mat-cell>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="BookTitle">
+        <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+        <mat-cell *matCellDef="let books">
+            <a [routerLink]="['/book', books.ID]">
+                {{ books.BookTitle }}
+              </a>
+        </mat-cell>
+      </ng-container>
+  
+     
+      <ng-container matColumnDef="Cover">
+        <mat-header-cell *matHeaderCellDef> Cover </mat-header-cell>
+        <mat-cell *matCellDef="let books">
+          <img class="cover" src="{{books.Cover}} " />
+        </mat-cell>
+      </ng-container>
+
+  
+      <ng-container matColumnDef="Author">
+        <mat-header-cell *matHeaderCellDef> Author </mat-header-cell>
+        <mat-cell *matCellDef="let books"> {{ books.Author }} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="IssuedDate">
+        <mat-header-cell *matHeaderCellDef> Issed Date </mat-header-cell>
+        <mat-cell *matCellDef="let books"> {{ books.IssuedDate | date: 'dd/MM/yyyy' }} </mat-cell>
+      </ng-container>
+  
+     
+      <ng-container matColumnDef="RenewalDate">
+        <mat-header-cell *matHeaderCellDef> Renew Date </mat-header-cell>
+        <mat-cell *matCellDef="let books"> {{ books.RenewalDate | date: 'dd/MM/yyyy' }} </mat-cell>
+      </ng-container>
+  
+  
+    
+      <ng-container matColumnDef="Return">
+        <mat-header-cell *matHeaderCellDef> Return </mat-header-cell>
+        <mat-cell *matCellDef="let books">
+          <button *ngIf="books.Issued" mat-raised-button color="primary" (click)="returnBook(books)">Return</button>
+        </mat-cell>
+      </ng-container>
+  
+    
+      <ng-container matColumnDef="Renew">
+        <mat-header-cell *matHeaderCellDef> Renew </mat-header-cell>
+        <mat-cell *matCellDef="let books">
+          <button *ngIf="books.Issued" mat-raised-button color="primary" (click)="renewBook(books,books.renewalDate)">Renew</button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">Library Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"  *ngIf="user.getUserLoggedIn() || user.getUserName() == 'admin'">
+          <a class="nav-link" [routerLink]="['/allbooks']" routerLinkActive="active">Books</a>
+        </li>
+        <li class="nav-item" *ngIf="user.getUserLoggedIn()">
+          <a class="nav-link" [routerLink]="['/mybooks']" routerLinkActive="active">My Books</a>
+        </li>
+        <li class="nav-item" *ngIf="user.getUserName() == 'admin'">
+            <a class="nav-link" [routerLink]="['/addbooks']" routerLinkActive="active">Add Books</a>
+          </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <a  class='navbar-brand' style="color: rgb(255, 255, 255)">{{ user.getUserName() }}</a>
+        <li *ngIf="!user.getUserLoggedIn()" class="nav-item">
+          <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="active">Sign Up</a>
+        </li>
+        <li class="nav-item" *ngIf="!user.getUserLoggedIn()" >
+          <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+        </li>
+        <li *ngIf="user.getUserLoggedIn()"><a (click)="logout()"><span class="fa fa-sign-out"></span></a></li>
+        <li *ngIf="user.getUserLoggedIn()"><a (click)="logout()"><span class="fa fa-user sign-in-gf"></span></a></li>
+      </ul>
+    </div>
+  </nav>

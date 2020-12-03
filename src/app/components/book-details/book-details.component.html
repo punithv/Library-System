@@ -1,0 +1,18 @@
+<mat-card class="detail-card">
+    <mat-card-header>
+      <mat-card-title>{{ book.BookTitle }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image data-src="{{ book.Cover }}" alt="Photo of a book">
+    <mat-card-content>
+      <p>
+        {{ book.Description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+      <rating [(ngModel)]="book.Rating" [readonly]="true">
+      </rating>
+    </mat-card-actions>
+  </mat-card>
+  
